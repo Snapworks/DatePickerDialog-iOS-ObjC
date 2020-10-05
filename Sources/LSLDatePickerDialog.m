@@ -211,6 +211,11 @@ static NSInteger const kDatePickerDialogDoneButtonTag = 1;
     self.titleLabel = titleLabel;
     
     UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 30, 0, 0)];
+    
+    if (@available(iOS 13.4, *)) {
+        datePicker.preferredDatePickerStyle = UIDatePickerStyleWheels;
+    }
+
     [datePicker setValue:self.textColor forKeyPath:@"textColor"];
     datePicker.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
     CGRect datePickerFrame = datePicker.frame;
